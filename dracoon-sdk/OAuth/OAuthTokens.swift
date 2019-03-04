@@ -15,7 +15,7 @@ public struct OAuthTokens: Codable {
     var expires_in: TimeInterval
     var scope: String
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         access_token = try values.decode(String.self, forKey: .access_token)
         token_type = try values.decodeIfPresent(String.self, forKey: .token_type) ?? ""
